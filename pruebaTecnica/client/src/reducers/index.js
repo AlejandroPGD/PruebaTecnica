@@ -1,4 +1,4 @@
-import { ADD_TASK, DELETE_TASK, EDIT_TASK, GET_TASKS } from "../actions/actionTypes"
+import { ADD_TASK, DELETE_TASK, EDIT_TASK, GET_TASKS, SEARCH_TASK } from "../actions/actionTypes"
 
 const initialState = {
     allTasks: [],
@@ -31,6 +31,11 @@ export default function reducer(state = initialState, action) {
             return {
                 ...state,
                 addTasks: action.payload
+            }
+        case SEARCH_TASK:
+            return {
+                ...state,
+                allTasks: action.payload
             }
         default:
             return state

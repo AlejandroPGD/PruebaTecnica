@@ -2,10 +2,11 @@ import React, { useEffect, useState } from 'react'
 
 import { Button, Col, Form, Row } from "react-bootstrap";
 import { useDispatch, useSelector } from 'react-redux';
-import { addTask, deleteTask, getAllTasks } from '../../actions';
+import { addTask, deleteTask, getAllTasks, searchTask } from '../../actions';
 import { FaEdit } from "react-icons/fa";
 import { FiTrash2 } from "react-icons/fi";
-import { IoIosAddCircleOutline } from "react-icons/io";
+import { IoIosAddCircleOutline, IoIosArrowDropright } from "react-icons/io";
+import { IoArrowForwardCircleOutline } from "react-icons/io5";
 import moment from "moment";
 import DataTable from "react-data-table-component";
 import { NavLink, useHistory } from 'react-router-dom';
@@ -17,6 +18,10 @@ function HomeTask() {
     const [blink, setBlink] = useState({
         turn: true,
     })
+    const [input, setInput] = useState({
+        search: "",
+
+    });
 
     useEffect(() => {
         dispatch(getAllTasks());
@@ -38,7 +43,15 @@ function HomeTask() {
         })
 
     }
-
+    const handleInputChange = (event) => {
+        event.preventDefault();
+        setInput((prevInput) => {
+            return {
+                ...prevInput,
+                [event.target.name]: event.target.value,
+            };
+        });
+    };
     const addHandle = (id) => {
         history.push(`/task/addChildTask/${id}`);
 
@@ -50,6 +63,14 @@ function HomeTask() {
 
 
     }
+
+    const serchBtn = (event) => {
+        event.preventDefault();
+
+        dispatch(
+            searchTask(input.search)
+        );
+    };
 
     const columnas = [
         { name: "Nro de orden", selector: (row) => row.id, sortable: true, show: false },
@@ -106,7 +127,7 @@ function HomeTask() {
                         title="Add"
                         style={{ marginRight: "15px", fontSize: "30px" }}
                         onClick={e => {
-                            console.log("row.id", row)
+                            // console.log("row.id", row)
                             addHandle(row.id)
                         }}
                     />
@@ -131,7 +152,16 @@ function HomeTask() {
     ];
     return (
         <div>
-            <Button onClick={(e) => addNewHandle(e)}>Agregar</Button>
+            <Button style={{ marginRight: "15px", fontSize: "30px" }} onClick={(e) => addNewHandle(e)}>Agregar</Button>
+            <div>
+
+                <input placeholder="Buscar"
+                    type="text"
+                    name="search"
+                    value={input.search}
+                    onChange={handleInputChange} />
+                <IoArrowForwardCircleOutline onClick={(e) => serchBtn(e)} />
+            </div>
             {gState.allTasks?.length > 0 ? (
                 <Row>
                     <Col
@@ -145,6 +175,7 @@ function HomeTask() {
                             data={gState.allTasks}
                             title="Listado de tareas"
                             conditionalRowStyles={conditionalRowStyles}
+
                         />
                         <hr />
                         <br />
@@ -155,7 +186,7 @@ function HomeTask() {
                 <div style={{ background: 'white', color: '#8c52ff', fontSize: '20px', height: '200px' }}>
                     <br />
                     <Row>
-                        <div style={{ marginTop: "50px" }}>
+                        <div style={{ marginTop: "100px" }}>
                             <h1>No hay tareas disponibles</h1>
                         </div>
                         <Col

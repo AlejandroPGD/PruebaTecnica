@@ -15,13 +15,13 @@ function Home() {
     return (
         <div>
             <NavBar />
-            <div>
 
 
 
-                <HomeTask />
 
-            </div>
+            <HomeTask />
+
+
 
         </div>
     )

@@ -3,7 +3,8 @@ import {
     GET_TASKS,
     EDIT_TASK,
     DELETE_TASK,
-    ADD_TASK
+    ADD_TASK,
+    SEARCH_TASK,
 } from "./actionTypes"
 
 
@@ -61,6 +62,21 @@ export const addTask = (body) => {
 
             return dispatch({
                 type: ADD_TASK,
+                payload: res.data,
+            });
+        } catch (error) {
+            console.log(error);
+        }
+    };
+};
+export const searchTask = (name) => {
+    return async function (dispatch) {
+        try {
+
+            const res = await axios.get(`/task?name=${name}`);
+
+            return dispatch({
+                type: SEARCH_TASK,
                 payload: res.data,
             });
         } catch (error) {
