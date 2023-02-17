@@ -15,14 +15,7 @@ function Home() {
     return (
         <div>
             <NavBar />
-
-
-
-
             <HomeTask />
-
-
-
         </div>
     )
 }
