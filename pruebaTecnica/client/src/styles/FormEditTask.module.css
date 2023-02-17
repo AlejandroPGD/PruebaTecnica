@@ -1,0 +1,25 @@
+.FormEditTask {
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+}
+
+.container {
+    width: 100vw;
+    height: 100vh;
+    margin: 0.5vh 0.5vw;
+    /* top: 0; */
+    overflow: hidden;
+    display: grid;
+    grid-template-columns: repeat(99, 1fr);
+    grid-template-rows: repeat(99, 1fr);
+
+}
+
+.PerfilBusiness,
+.container {
+
+    position: absolute;
+
+}

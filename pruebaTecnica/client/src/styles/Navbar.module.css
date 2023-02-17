@@ -1,0 +1,134 @@
+.navbar {
+    background-color: rgba(0, 0, 0, 0.877);
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 100%;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.25), 0 6px 20px 0 rgba(0, 0, 0, 0.25);
+    height: 130px;
+}
+
+.imagen {
+    height: auto;
+    width: 10%;
+    object-fit: fit;
+    padding-bottom: 0px;
+    margin-left: 2%;
+    margin-top: 3px;
+    padding-top: 5px;
+}
+
+#botonCart {
+    background-color: rgb(31, 31, 31);
+    /* color: rgba(0, 0, 0, 0.877); */
+    font-size: 12px;
+    border-color: #8c52ff;
+    margin-top: 0px;
+    padding-bottom: 10px;
+    padding-bottom: 10px;
+    margin-left: 70px;
+}
+
+
+
+/* #botonCart {
+  height: 40px;
+  background-color:rgba(0, 0, 0, 0.877);
+  
+} */
+
+#botonCart:hover {
+    border-color: rgba(0, 0, 0, 0.877);
+    transition: background-color 0.8s ease;
+    background-color: #8c52ff;
+    color: rgba(0, 0, 0, 0.877);
+}
+
+.search {
+    margin-top: 33px;
+    margin-left: 20%;
+
+}
+
+.selectPerfil {
+    margin-left: 2%;
+}
+
+.selectPerfil option {
+    background-color: #8c52ff;
+    color: white;
+
+}
+
+.SearchBar input {
+    border: 3px solid #1687a7;
+    color: #1687a7;
+    height: 33px;
+    width: 200px;
+    margin-right: 0px;
+    padding-bottom: 20px;
+}
+
+.SearchBar button {
+    margin-left: 10px;
+    border-radius: 5px;
+}
+
+.SearchBar input::placeholder {
+    color: #1687a7;
+    font-size: 10px;
+}
+
+.contbotones {
+    display: flex;
+    margin-top: 55px;
+    margin-left: 5%;
+}
+
+.contbotones button {
+    margin-right: 10px;
+}
+
+.navbar button {
+    font-family: "Montserrat", sans-serif;
+    background-color: #f6f5f5;
+    color: #1687a7;
+    border: 3px solid #1687a7;
+    font-weight: bold;
+    border-radius: 5px;
+    font-size: 15px;
+    height: 40px;
+    width: 90px;
+
+}
+
+.navbar button:hover {
+    transition: background-color 1s ease;
+    background-color: #41d4cf;
+    /* Green */
+    color: #f6f5f5;
+}
+
+.selectPerfil {
+    font-weight: 400;
+    font-family: "Montserrat";
+    background-color: black;
+    color: white;
+    font-size: 1rem;
+    border-color: #8c52ff;
+}
+
+.selectPerfil select-selected {
+    transition: color 0.5s, background-color 0.5s, ;
+    background-color: #8c52ff;
+    color: white;
+}
+
+.spinner {
+    padding-top: 250px;
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    height: 400px;
+    width: auto;
+}
